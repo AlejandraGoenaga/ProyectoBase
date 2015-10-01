@@ -49,20 +49,14 @@ Estados (http://asciiflow.com/):
                       +-----------+          
 
 Clases de equivalencia:
-
-CE1. Casos Básicos.
-CE2. Que sumado supere 30 de un mes de 30 dias.
-CE3. Que sumado supere 31 de un mes de 31 dias.
-CE4. Año Bisiesto y que sumado supere 28 de Febrero ó 365 dias de ese año.
-CE5. Que sumado supere 365 dias de ese mismo año si es un año normal.
+*CE1. Paciente con Cédula
+*CE2. Paciente con Tarjeta de Identidad
+*CE2. Paciente con Cédula Extranjera
+*CE4. Paciente con fecha de nacimiento en el futuro
+*CE5. Paciente 
 
 Condiciones de frontera a evaluar:
 
-F1. Para meses de 31 dias, el dia sumado a N sea igual a 32.
-F2. Para meses de 30 dias, el dia sumado a N sea igual a 31.
-F3. Para años de "365" dias, si el numero de dia mas N sea igual a 366.
-F4. Para años de "366" dias, si el numero de dia mas N sea igual a 367.
-F5. Para Febrero en año bisiesto, el dia sumado a N sea iguaql a 30.
 
  
 * @author XXXXXXX
