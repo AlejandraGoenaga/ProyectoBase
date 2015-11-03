@@ -1,21 +1,45 @@
+-- -----------------------------------------------------
+-- Table `LABORATORIO`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `LABORATORIO`(
+  `ID_laboratorio` INT NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `cantidad_equipos` INT,
+  `videobeam` bool,
+  PRIMARY KEY (`ID_laboratorio`))
+ENGINE = InnoDB;
 
-CREATE TABLE `PACIENTES` (
-  `id` int(11) NOT NULL,
-  `tipo_id` varchar(2),
-  `nombre` varchar(45) NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
-  PRIMARY KEY (`id`,`tipo_id`)
-) ENGINE=InnoDB;
+-- -----------------------------------------------------
+-- Table `USUARIO`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `USUARIO` (
+  `ID_usuario` INT NOT NULL,
+  `nombre` VARCHAR (255) NOT NULL,
+  `email` VARCHAR (255),
+  `tipo_usuario` INT,
+  PRIMARY KEY (`ID_usuario`))
+ENGINE = InnoDB;
 
-
-
-CREATE TABLE `CONSULTAS` (
-  `idCONSULTAS` int(11) NOT NULL AUTO_INCREMENT,
-  `fecha_y_hora` datetime NOT NULL,
-  `resumen` varchar(45)  NOT NULL,
-  `PACIENTES_id` int(11) NOT NULL DEFAULT '0',
-  `PACIENTES_tipo_id` varchar(2),
-  PRIMARY KEY (`idCONSULTAS`),
-  KEY `fk_CONSULTAS_PACIENTES1` (`PACIENTES_id`,`PACIENTES_tipo_id`),
-  CONSTRAINT `fk_CONSULTAS_PACIENTES1` FOREIGN KEY (`PACIENTES_id`, `PACIENTES_tipo_id`) REFERENCES `PACIENTES` (`id`, `tipo_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB;
+-- -----------------------------------------------------
+-- Table `SOLICITUD`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SOLICITUD` (
+  `ID_solicitud` INT NOT NULL AUTO_INCREMENT,
+  `Laboratorio_id` INT NOT NULL,
+  `Software` VARCHAR (300) NOT NULL,
+  `Link_licencia` VARCHAR (800) NOT NULL,
+  `Link_descarga` VARCHAR (800) NOT NULL,
+  `Estado` bool,
+  `Fecha_radicacion` DATETIME NOT NULL,
+  `Fecha_posible_instalacion` DATETIME,
+  `Fecha_respuesta` DATETIME,
+  `Justificacion` VARCHAR (2000),
+  `Usuario_id` INT NOT NULL,
+  PRIMARY KEY (`ID_solicitud`))
+  --INDEX `fk_COMENTARIOS_CLIENTES_idx` (`CLIENTES_id` ASC),
+  --CONSTRAINT `fk_COMENTARIOS_CLIENTES`
+    --FOREIGN KEY (`Usuario_id`)
+    --REFERENCES `USUARIO` (`ID_usuario`)
+    --ON DELETE NO ACTION
+    --ON UPDATE NO ACTION)
+ENGINE = InnoDB;
